@@ -1,0 +1,28 @@
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+</head>
+
+<body>
+	<script>
+	var app = angular.module("myShoppingList", []);
+	app.controller("myCtrl", function($scope) {
+		$scope.heroes = ["Bosse", "Lennart", "Gert"];
+		$scope.makeChoice = function (x) {
+			$scope.choice = x;
+		}
+	});
+	</script>
+
+	<div ng-app="myShoppingList" ng-controller="myCtrl" ng-init="choice=null">
+		<ul>
+			<li ng-repeat="x in heroes">
+				{{x}}
+				<button ng-click="makeChoice($index)">Choose</button>
+			</li>
+		</ul>
+		
+		Your choice: {{choice}}
+	</div>
+</body>
+</html>
