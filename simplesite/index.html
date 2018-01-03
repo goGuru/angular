@@ -5,16 +5,25 @@
 	<style>
 	body {
 		background-color: #ddd;
+		font-family: verdana;
 	}
 
 	h1 {
 		color: white;
 		text-align: center;
 	}
+	
+	button {
+		font-family: verdana;
+	}
+	
+	input {
+		font-family: verdana;
+	}
 
 	p {
 		font-family: verdana;
-		font-size: 20px;
+		font-size: 16px;
 	}
 	
 	header {
@@ -64,12 +73,20 @@
 		overflow-y: scroll;
 		padding: 5px;
 	}
-	
+
 	.msgWin .msgField .text{
-		background-color: #55f;
+		background-color: #17f;
 		border-radius: 10px;
 		padding: 20px;
 		color: #fff;
+		position: relative;
+	}
+	
+	.msgWin .msgField .text .user{
+		position: absolute;
+		top: 0px;
+		left: 5px;
+		font-size: 14px;
 	}
 	
 	.msgWin .msgForm input{
@@ -150,7 +167,8 @@
 		
 		<div class="msgField">
 			<p class="text" ng-repeat="msg in msgData">
-				{{msg.username}}: {{msg.text}}
+				<span class="user">{{msg.username}}</span>
+				{{msg.text}}
 			</p>
 		</div>
 		
