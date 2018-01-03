@@ -1,0 +1,194 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+	
+	<style>
+	body {
+		background-color: #ddd;
+		font-family: verdana;
+	}
+
+	h1 {
+		color: white;
+		text-align: center;
+	}
+	
+	button {
+		font-family: verdana;
+	}
+	
+	input {
+		font-family: verdana;
+	}
+
+	p {
+		font-family: verdana;
+		font-size: 16px;
+	}
+	
+	header {
+		width: 100%;
+		background-color: #444;
+		color: #fff;
+	}
+	
+	header h1{
+		margin: 0 auto;
+	}
+	
+	header ul{
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	header ul li{
+		background-color: #555;
+		width: 100px;
+		height: 100px;
+		display: inline;
+	}
+	
+	.msgWin{
+		width: 400px;
+		height: 400px;
+		background-color: #fff;
+		margin: 0 auto;
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.msgWin .msgHead{
+		width: 100%;
+		height: 50px;
+		background-color: #000;
+		color: #fff;
+		margin: 0 auto;
+		text-align: center;
+		font-size: 30px;
+		line-height: 45px;
+	}
+	
+	.msgWin .msgField{
+		height: 300px;
+		overflow-y: scroll;
+		padding: 5px;
+	}
+
+	.msgWin .msgField .text{
+		background-color: #17f;
+		border-radius: 10px;
+		padding: 20px;
+		color: #fff;
+		position: relative;
+	}
+	
+	.msgWin .msgField .text .user{
+		position: absolute;
+		top: 0px;
+		left: 5px;
+		font-size: 14px;
+	}
+	
+	.msgWin .msgForm input{
+		width: 300px;
+		float: left;
+		
+		height: 40px;
+		background-color: #fff;
+		position: absolute;
+		bottom: 0px;
+		text-align: center;
+		border: none;
+		background-color: #eee;
+	}
+	
+	.msgWin .msgForm button{
+		float: right;
+		width: 90px;
+		
+		height: 40px;
+		background-color: #fff;
+		position: absolute;
+		bottom: 0px;
+		right: 0px;
+		text-align: center;
+		border: none;
+		background-color: #eee;
+	}
+	
+	.roundTopBorder{
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
+	}
+	
+	</style>
+</head>
+
+<body ng-app="mySite" ng-controller="myCtrl">
+	<script>
+	
+	class Message {
+	  constructor(username, text) {
+		this.username = username;
+		this.text = text;
+	  }
+	}
+	
+	var app = angular.module("mySite", []);
+	
+	app.config(['$qProvider', function ($qProvider) {
+		$qProvider.errorOnUnhandledRejections(false);
+	}]);
+	
+	app.controller("myCtrl", function($scope,$http) {
+		$scope.topics = ["Home", "Contact", "About"];
+		$scope.msgHeadTitle = "Message App";
+		$scope.username = "Bosse";
+		$scope.msgText = "";
+		  
+		$http.get('http://localhost:5000/msgData').then(function successCallback(response) {
+				$scope.msgData = response.data;
+		  }, function errorCallback(response) {
+				$scope.msgData = [];
+		  });
+		  
+		
+		$scope.addMsg = function () {
+			if($scope.msgText != ""){
+				$scope.msgData.push(new Message($scope.username,$scope.msgText))
+				$scope.msgText = "";
+			}else{
+				alert("Enter something..");
+			}
+		}
+	});
+	</script>
+	
+	<header>
+	</header>
+	
+	<div class="msgWin roundTopBorder">
+		<div class="msgHead roundTopBorder">
+			{{msgHeadTitle}}
+		</div>
+		
+		<div class="msgField">
+			<p class="text" ng-repeat="msg in msgData">
+				<span class="user">{{msg.username}}</span>
+				{{msg.text}}
+			</p>
+		</div>
+		
+		<form class="msgForm" ng-submit="addMsg()">
+			<input type="text" placeholder="Say something..." ng-model="msgText"></input>
+			<button type="submit" class="msgInput">Send</button>
+		</form>
+	</div>
+	
+	<footer>
+	</footer>
+
+</body>
+</html>
