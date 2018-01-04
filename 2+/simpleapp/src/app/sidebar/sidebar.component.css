@@ -1,0 +1,18 @@
+sidebar{
+    width:300px;
+    height:600px;
+    margin: 0 auto;
+    background-color: #444;
+}
+
+sidebar .top {
+    width:100%;
+}
+
+sidebar .middle {
+    width:100%;
+}
+
+sidebar .bottom {
+    width:100%;
+}
