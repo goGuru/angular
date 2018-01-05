@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Site } from './sidebar/site';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Simple App';
-  heroes = ["Bosse","Lennart","Göran"];
+  siteToShow: Site;
+
+  notifyContent(site:Site){
+    this.siteToShow = site;
+  }
 }

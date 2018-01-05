@@ -1,18 +1,11 @@
-sidebar{
-    width:300px;
+:host{
+    width:180px;
     height:600px;
-    margin: 0 auto;
-    background-color: #444;
+    float:left;
+    background-color: #fff;
+    margin-top:10px;
 }
 
-sidebar .top {
-    width:100%;
-}
-
-sidebar .middle {
-    width:100%;
-}
-
-sidebar .bottom {
+:host button {
     width:100%;
 }

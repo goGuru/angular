@@ -1,3 +1,5 @@
-<div class="top">{{ top }}</div>
-<div class="middle">{{ middle }}</div>
-<div class="bottom">{{ bottom }}</div>
+<div id="sidebar-wrapper">
+  <button *ngFor="let site of subSites" (click)="goto(site)">
+      {{site.text}}
+  </button>
+</div>

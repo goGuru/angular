@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Site } from './site';
 
 @Component({
   selector: 'sidebar',
@@ -6,14 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-
-  top: string = "Top";
-  middle: string = "Middle";
-  bottom: string = "Bottom";
-
   constructor() { }
+  subSites: Site[] = [];
 
-  ngOnInit() {
+  @Output() onNewSite = new EventEmitter<Site>();
+
+  ngOnInit(){
+    this.subSites.push(
+      new Site("Home","localhost:4200"),
+      new Site("Heroes","localhost:4200/heroes")
+    );
+  }
+
+  goto(site){
+    this.onNewSite.emit(site);
   }
 
 }
