@@ -11,19 +11,11 @@ export class AppComponent {
   
   dataToBeSent: string;
   title = 'app';
-  childData = '';
-
+  
   constructor(){
   }
 
   setValue(value: string){
       this.dataToBeSent = value;
-      this.sendData();
-  }
-
-  sendData(){
-    this.onClick.emit(this.dataToBeSent);
-  }
-
-  
+  }  
 }
