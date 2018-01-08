@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { WrapperComponent } from './wrapper/wrapper.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WrapperComponent
   ],
   imports: [
     BrowserModule
