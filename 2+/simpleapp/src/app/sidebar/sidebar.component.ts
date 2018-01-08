@@ -14,8 +14,8 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(){
     this.subSites.push(
-      new Site("Home","localhost:4200"),
-      new Site("Heroes","localhost:4200/heroes")
+      new Site("Home","/"),
+      new Site("Heroes","/heroes")
     );
   }
 
