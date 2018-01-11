@@ -7,9 +7,9 @@ import { ChildComponent } from './child/child.component';
   styleUrls: ['./app.component.css'],
   template: `
   <h1>Parent</h1>
-  Child -> Parent: {{dataFromChild}}
+  Child->Parent: <div class="bg">{{dataFromChild}}</div>
   <br>
-  Parent -> Child: <input #parentInput (keyup)="0"/>
+  Parent->Child: <input #parentInput (keyup)="0"/>
   <br>
   <child [parentData]="parentInput.value" (childChanged)="dataFromChild = $event"></child>
   `

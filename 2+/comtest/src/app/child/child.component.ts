@@ -6,9 +6,9 @@ import { Component, OnInit, EventEmitter} from '@angular/core';
   styleUrls: ['./child.component.css'],
   template: `
   <h1>Child</h1>
-  Data from parent: {{parentData}}
+  Parent->Child: <div class="bg">{{parentData}}</div>
   <br>
-  <input #childInput type="text" (keyup)="onChange(childInput.value)">
+  Child->Parent: <input #childInput type="text" (keyup)="onChange(childInput.value)">
   `,
   inputs: ['parentData'],
   outputs: ['childChanged']
