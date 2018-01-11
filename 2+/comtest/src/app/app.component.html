@@ -1,3 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
+Outdata to child: 
 <input #box (keyup.enter)="setValue(box.value)" >
-<wrapper [inData]="dataToBeSent"></wrapper>
+Indata from child: {{dataFromChild}}
+<br>
+<wrapper [dataFromParent]="dataToBeSent"></wrapper>

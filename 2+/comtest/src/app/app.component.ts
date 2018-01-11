@@ -1,21 +1,24 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { ChildComponent } from './child/child.component';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  //templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  template: `
+  <h1>Parent</h1>
+  Child -> Parent: {{dataFromChild}}
+  <br>
+  Parent -> Child: <input #parentInput (keyup)="0"/>
+  <br>
+  <child [parentData]="parentInput.value" (childChanged)="dataFromChild = $event"></child>
+  `
 })
 export class AppComponent {
-  @Output() onClick = new EventEmitter<string>();
-  
+
   dataToBeSent: string;
   title = 'app';
-  
+
   constructor(){
   }
-
-  setValue(value: string){
-      this.dataToBeSent = value;
-  }  
 }
