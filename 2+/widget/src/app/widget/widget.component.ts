@@ -5,7 +5,8 @@ import { RightchildComponent } from './rightchild/rightchild.component';
 @Component({
   selector: 'app-widget',
   template: `
-    <input #rawData type="text" (keydown)="0">
+  <div id="bosseslada">Hoho</div>
+    <input id="bosseslada" #rawData type="text" (keydown)="0">
     <br>
     <app-leftchild [inData]="rawData.value"></app-leftchild>
     <br>
