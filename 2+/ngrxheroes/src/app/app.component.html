@@ -1,0 +1,12 @@
+<div id="container">
+  <h1>{{title}}</h1>
+
+  <!--<ul>
+    <li *ngFor="let h of heroes$ | async">
+      h.name;
+    </li>
+  </ul>-->
+  <h2>{{(heroes$ | async).name}}</h2>
+  
+  <input align="middle" #newHero (keyup.enter)="addHero(newHero.value)"/>
+</div>
