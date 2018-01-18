@@ -6,10 +6,11 @@ import { Observable } from 'rxjs/Observable';
 import * as fromActions from './store/hero.action';
 import { AddHero } from './store/hero.action';
 import { Hero } from './models/hero.model';
+import { Heroes } from './models/heroes.model';
 
 
 interface AppState {
-  heroes: Hero;
+  heroes: Heroes;
 }
 
 @Component({
@@ -20,7 +21,7 @@ interface AppState {
 export class AppComponent {
   title = 'Latest Heroes';
 
-  heroes$: Observable<Hero>;
+  heroes$: Observable<Heroes>;
 
   constructor(private store: Store<AppState>){
     this.heroes$ = this.store.select('heroes');
