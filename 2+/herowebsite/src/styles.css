@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    font-family: verdana;
+}
+
+ul{
+    width: 200px;
+    list-style-type: none;
+}
+
+li{
+    border: solid 2px #eee;
+    border-radius: 5px;
+    margin: 5px;
+}

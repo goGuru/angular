@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { WidgetComponent } from './widget/widget.component';
 import { LeftchildComponent } from './widget/leftchild/leftchild.component';
 import { RightchildComponent } from './widget/rightchild/rightchild.component';
+import { BackwardsDirective } from './backwards.directive';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { RightchildComponent } from './widget/rightchild/rightchild.component';
     AppComponent,
     WidgetComponent,
     LeftchildComponent,
-    RightchildComponent
+    RightchildComponent,
+    BackwardsDirective
   ],
   imports: [
     BrowserModule
