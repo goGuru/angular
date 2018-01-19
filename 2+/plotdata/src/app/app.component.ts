@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
   <button (click)="generate()">Generate</button>
-  <circle [inData]="circleData"></circle>`,
+  <circle [inData]="circleData"></circle>
+  <e-rect [inData]="circleData"></e-rect>`,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
